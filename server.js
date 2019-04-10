@@ -6,6 +6,7 @@ const port = process.env.PORT || 8080;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
+
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
@@ -46,6 +47,13 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+        welcomeMessage: 'This is the projects page'
     });
 });
 
